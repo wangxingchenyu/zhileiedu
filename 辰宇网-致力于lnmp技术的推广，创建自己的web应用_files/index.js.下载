@@ -1,0 +1,58 @@
+$(function () {
+
+    // 左飘移的内容特效
+    $(".left_ce li").mouseenter(function(){
+        $(this).animate({'width':"120px"},400);
+    });
+
+
+    $(".left_ce li").mouseleave(function(){
+        $(this).animate({'width':"50px"},0);
+    });
+
+
+    $(".container .thumbnail").mouseenter(function(){
+        $(this).children("img").css({"transform":"scale(1.1,1.1)",'cursor':"pointer"});
+    });
+    $(".container .thumbnail").mouseleave(function(){
+        $(this).children("img").css({"transform":"scale(1,1)"});
+    });
+    // 主页导航区
+    $("#left ul li").mouseenter(function(){
+        // t=$(this).position().top;
+        $(this).children(".content").show();
+        $(this).css({'background':"#f8f8f8",'cursor':"pointer",'color':"#272822"});
+        $(this).siblings().children(".content").hide();
+    });
+
+    $("#left ul li").mouseleave(function(){
+        $(this).children(".content").hide();
+        $(this).css({'background':"#121824",'color':"#fff"});
+    });
+
+
+    // 导航特效内容
+    $("#nav ul li").mouseenter(function(){
+        w=$(this).width();
+        lw=$(this).position().left;
+        $("#nav #st").animate({'left':lw+"px",'width':w+"px",'opacity':1},100);
+    });
+
+    $("#nav ul li").mouseleave(function(){
+        $("#nav #st").css({'opacity':0});
+    });
+
+    //让导航有一个右边距
+    $("#nav ul li").css({'margin-right':"20px"});
+
+
+    // 侧边栏默认的显示
+    $("#container_right ul li").eq(0).css({'color':"#f00",'background':"#fff"});
+    $("#container_right .content").eq(0).show().css({'background':"#fff",'color':"#f00"});
+
+
+
+
+
+
+})
